@@ -46,16 +46,17 @@ int minPathSum(vector<vector<int> > &A) {
     {
         return A[0][0];
     }
-    
+   /*for first row there is only one choice of direction going right in the way so we are sum up the values comeing in the way and getting result of each cell*/ 
     for(int j=1;j<m;j++)
     {
         A[0][j] = A[0][j-1] + A[0][j];
     }
+  /*for first col there is only one choice of direction going down in the way so we are sum up the values comeing in the way and getting result of each cell*/ 
     for(int i=1;i<n;i++)
     {
         A[i][0] = A[i-1][0] + A[i][0];
     }
-
+ /* now for remaining cell we have 2 choice of reaching there we can come there from the top or from the left so we will make a choice which cost less*/
     for(int i = 1;i<n;i++)
     {
         for(int j = 1;j<m;j++)
